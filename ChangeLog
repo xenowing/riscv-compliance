@@ -1,6 +1,17 @@
+2018-05-24  Mary Bennett  <mary.bennett@embecosm.com>
+
+        Added Codasip tests.
+
+        * README.md: Changed to add more information.
+        * run_test.sh: Added.
+        * rv32i/*: Added.
+        * documentation/*: Added.
+        * riscv-test-env/*: Added.
+
 2018-05-21  Jeremy Bennett  <jeremy.bennett@embecosm.com>
 
 	Initial commit to populate the repository.
 
 	* ChangeLog: Created.
 	* README.md: Created.
+
