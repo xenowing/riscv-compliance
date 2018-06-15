@@ -7,7 +7,7 @@ RUN_TARGET=\
 #        $(work_dir_isa)/$< 2> $(work_dir_isa)/$@
 
 RISCV_PREFIX   ?= codix_berkelium-ia-
-RISCV_GCC      ?= codix_berkelium-ia-gcc
+RISCV_GCC      ?= $(RISCV_PREFIX)gcc
 RISCV_GCC_OPTS ?= -nostdlib -nodefaultlibs
 
 COMPILE_TARGET=\

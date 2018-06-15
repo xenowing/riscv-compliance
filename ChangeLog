@@ -1,5 +1,14 @@
 2018-06-15  Radek Hajek  <hajek@codasip.com>
 
+	More changes to support Codasip simulator
+
+	* Makefile: Include Codasip simulator target.
+	* riscv-target/Codasip-simulator/device/rv32i/Makefile.include:
+	Fix typo.
+	* riscv-target/spike/device/rv32i/Makefile.include: Likewise.
+
+2018-06-15  Radek Hajek  <hajek@codasip.com>
+
 	Modifications to support Codasip simulator.
 
 	The simulator is renamed as Codasip-simulator (was

@@ -15,4 +15,4 @@ COMPILE_TARGET=\
 		-I$(ROOTDIR)/riscv-target/$(RISCV_TARGET)/ \
 		-T$(ROOTDIR)/riscv-test-env/p/link.ld $$< \
 		-o $(work_dir_isa)/$$@; \
-	$$(RISCV_OBJDUMP) -D $(work_dir_isa)/$$@ > $(work_dir_isa)/$$@.ahoj
+	$$(RISCV_OBJDUMP) -D $(work_dir_isa)/$$@ > $(work_dir_isa)/$$@.objdump
