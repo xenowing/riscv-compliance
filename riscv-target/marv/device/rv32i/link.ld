@@ -30,7 +30,7 @@ SECTIONS
     .data __data_va : AT(__data_start)
     {
         *(.data*)
-        . = ALIGN(0x1000)
+        . = ALIGN(0x1000);
         *(.tohost)
     } >ram = 0xff
 
