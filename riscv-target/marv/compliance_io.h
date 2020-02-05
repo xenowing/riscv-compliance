@@ -28,8 +28,7 @@
 
 #define RVTEST_IO_INIT
 
-#define MARV_UART_TX_STATUS (0x21000000)
-#define MARV_UART_TX_WRITE (0x21000004)
+#define MARV_SERIAL_WRITE (0x21000000)
 
 //#define RVTEST_IO_WRITE_STR(_STR) RVTEST_IO_WRITE_STR(x31, _STR)
 #define RVTEST_IO_WRITE_STR(_SP, _STR) \
@@ -43,13 +42,8 @@
     lbu t0, (a0); \
     addi a0, a0, 1; \
     beq t0, zero, 10000f; \
-30000: \
-    li t1, MARV_UART_TX_STATUS; \
-    lbu t1, 0(t1); \
-    andi t1, t1, 1; \
-    beq t1, zero, 30000b; \
-    li t1, MARV_UART_TX_WRITE; \
-    sb t0, 0(t1); \
+    li t1, MARV_SERIAL_WRITE; \
+    sb t0, (t1); \
     j 10000b; \
 10000: \
     LOCAL_IO_POP(_SP)
