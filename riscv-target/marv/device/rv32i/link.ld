@@ -29,9 +29,9 @@ SECTIONS
     __data_start = .;
     .data __data_va : AT(__data_start)
     {
-        *(.data*)
-        . = ALIGN(0x1000);
         *(.tohost)
+        . = ALIGN(0x1000);
+        *(.data*)
     } >ram = 0xff
 
     .sdata :
