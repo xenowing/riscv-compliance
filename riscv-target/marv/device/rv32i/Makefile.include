@@ -1,8 +1,7 @@
 MARV     = $(ROOTDIR)/riscv-target/marv/device/rv32i
 LDSCRIPT = $(MARV)/link.ld
 
-# TODO: Build sim!!
-TARGET_SIM   ?= $(ROOTDIR)/../xenowing/sim/marv-test/target/release/marv-test
+TARGET_SIM   ?= $(ROOTDIR)/../../sim/marv/target/release/marv
 TARGET_FLAGS ?= $(RISCV_TARGET_FLAGS)
 
 RUN_TARGET=\
