@@ -3,7 +3,7 @@ ENTRY(_entry)
 
 MEMORY
 {
-    rom (rx) : ORIGIN = 0x10000000, LENGTH = 8k
+    rom (rx) : ORIGIN = 0x10000000, LENGTH = 64k
     ram (!r) : ORIGIN = 0x30000000, LENGTH = 128k
 }
 
