@@ -65,7 +65,7 @@ clear_bss_loop_end: \
 \
         /* Let's GOOOOO */ \
         j begin_testcode; \
-        .section .text.test; \
+        .section .text.init; \
 begin_testcode: \
         /*RVTEST_CODE_BEGIN*/                                                 \
 
