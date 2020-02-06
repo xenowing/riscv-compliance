@@ -9,11 +9,11 @@
 // RV Compliance Macros
 //-----------------------------------------------------------------------
 
-#define MARV_TEST_PASS_ADDR (0x20000000)
+#define MARV_TEST_PASS_FAIL_ADDR (0x20000000)
 
 #define RV_COMPLIANCE_HALT                                                    \
         li t0, 0; \
-        li t1, MARV_TEST_PASS_ADDR; \
+        li t1, MARV_TEST_PASS_FAIL_ADDR; \
         sb t0, 0(t1); \
         /*RVTEST_PASS*/                                                       \
 
@@ -65,7 +65,7 @@ clear_bss_loop_end: \
 \
         /* Let's GOOOOO */ \
         j begin_testcode; \
-        .section .text.init; \
+        .section .text; \
 begin_testcode: \
         /*RVTEST_CODE_BEGIN*/                                                 \
 

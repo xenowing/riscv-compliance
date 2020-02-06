@@ -17,7 +17,7 @@ SECTIONS
     {
         PROVIDE (__tp = .);
         *(.entry) /* Ensure the entry point is at the beginning of ROM */
-        *(.text)
+        *(.text*)
     } >rom = 0xff
 
     /* Pack .rodata in ROM as well as .text as it's read-only */

@@ -30,7 +30,7 @@
 #ifndef _COMPLIANCE_IO_H
 #define _COMPLIANCE_IO_H
 
-#define RVTEST_IO_QUIET
+//#define RVTEST_IO_QUIET
 
 //-----------------------------------------------------------------------
 // RV IO Macros (Character transfer by custom MMIO write)
@@ -88,14 +88,16 @@
 #define RVTEST_IO_WRITE_STR(_SP, _STR)                                  \
     LOCAL_IO_PUSH(_SP)                                                  \
     .section .data.string;                                              \
-20001:                                                                  \
+10000:                                                                  \
     .string _STR;                                                       \
-    .section .text.init;                                                \
-    la a0, 20001b;                                                      \
+    .section .text;                                                     \
+    la a0, 10000b;                                                      \
     jal FN_WriteStr;                                                    \
     LOCAL_IO_POP(_SP)
 
 #define RVTEST_IO_CHECK()
+
+#define MARV_TEST_PASS_FAIL_ADDR (0x20000000)
 
 // Assertion violation: file file.c, line 1234: (expr)
 // _SP = (volatile register)
@@ -105,7 +107,7 @@
     LOCAL_IO_PUSH(_SP)                                                  \
     mv          s0, _R;                                                 \
     li          t0, _I;                                                 \
-    beq         s0, t0, 10000f;                                         \
+    beq         s0, t0, 20000f;                                         \
     LOCAL_IO_WRITE_STR("Assertion violation: file ");                   \
     LOCAL_IO_WRITE_STR(__FILE__);                                       \
     LOCAL_IO_WRITE_STR(", line ");                                      \
@@ -117,9 +119,12 @@
     LOCAL_IO_WRITE_STR(") != ");                                        \
     LOCAL_IO_WRITE_STR(# _I);                                           \
     LOCAL_IO_WRITE_STR("\n");                                           \
-    li TESTNUM, 100;                                                    \
-    RVTEST_FAIL;                                                        \
-10000:                                                                  \
+    li t0, 1; \
+    li t1, MARV_TEST_PASS_FAIL_ADDR; \
+    sb t0, 0(t1); \
+    /*li TESTNUM, 100*/;                                                \
+    /*RVTEST_FAIL*/;                                                    \
+20000:                                                                  \
     LOCAL_IO_POP(_SP)
 
 #define RVTEST_IO_ASSERT_SFPR_EQ(_F, _R, _I)

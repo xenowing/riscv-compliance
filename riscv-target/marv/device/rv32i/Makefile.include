@@ -6,8 +6,7 @@ TARGET_FLAGS ?= $(RISCV_TARGET_FLAGS)
 
 RUN_TARGET=\
 	$(TARGET_SIM) $(TARGET_FLAGS) \
-		$(work_dir_isa)/$<.bin $(work_dir_isa)/$< $(work_dir_isa)/$(*).signature.output; \
-		true
+		$(work_dir_isa)/$<.bin $(work_dir_isa)/$< $(work_dir_isa)/$(*).signature.output
 
 RISCV_PREFIX   ?= riscv32-unknown-elf-
 RISCV_GCC      ?= $(RISCV_PREFIX)gcc
